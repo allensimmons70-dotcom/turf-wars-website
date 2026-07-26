@@ -2,154 +2,766 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turf Wars</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Turf Wars: Flow Labs is an interactive rap and freestyle experience. Enter the booth, sharpen your flow, impress the judges, and earn respect."
+    >
+
+    <title>Turf Wars: Flow Labs</title>
 
     <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        :root {
+            --black: #050505;
+            --panel: #111111;
+            --panel-light: #181818;
+            --green: #23d160;
+            --green-dark: #109541;
+            --white: #ffffff;
+            --gray: #b8b8b8;
+            --border: rgba(255, 255, 255, 0.12);
         }
 
-        body{
-            background:#0b0b0b;
-            color:white;
-            font-family:Arial, Helvetica, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header{
-            background:black;
-            padding:25px;
-            text-align:center;
-            border-bottom:2px solid #1DB954;
+        html {
+            scroll-behavior: smooth;
         }
 
-        h1{
-            font-size:48px;
-            color:#1DB954;
+        body {
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(35, 209, 96, 0.12),
+                    transparent 32rem
+                ),
+                var(--black);
+
+            color: var(--white);
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.6;
         }
 
-        nav{
-            margin-top:20px;
+        a {
+            color: inherit;
         }
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:0 20px;
-            font-size:18px;
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
         }
 
-        nav a:hover{
-            color:#1DB954;
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(5, 5, 5, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
         }
 
-        .hero{
+        .navbar {
+            min-height: 76px;
 
-            height:90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            display:flex;
-
-            flex-direction:column;
-
-            justify-content:center;
-
-            align-items:center;
-
-            text-align:center;
-
+            gap: 30px;
         }
 
-        .hero h2{
-
-            font-size:64px;
-
-            margin-bottom:20px;
-
+        .logo {
+            color: var(--green);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
         }
 
-        .hero p{
-
-            font-size:24px;
-
-            max-width:700px;
-
-            line-height:1.6;
-
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
         }
 
-        .download{
-
-            margin-top:40px;
-
-            background:#1DB954;
-
-            color:white;
-
-            padding:18px 40px;
-
-            border-radius:50px;
-
-            text-decoration:none;
-
-            font-size:22px;
-
+        nav a {
+            color: var(--gray);
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.25s;
         }
 
-        .download:hover{
-
-            background:#27d866;
-
+        nav a:hover {
+            color: var(--green);
         }
 
+        .hero {
+            min-height: calc(100vh - 76px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 90px 0;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            color: var(--green);
+            background: rgba(35, 209, 96, 0.1);
+
+            border: 1px solid rgba(35, 209, 96, 0.35);
+            border-radius: 999px;
+
+            padding: 8px 16px;
+            margin-bottom: 24px;
+
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            max-width: 900px;
+            margin: 0 auto 20px;
+
+            font-size: clamp(3rem, 9vw, 7.5rem);
+            line-height: 0.95;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero-description {
+            max-width: 700px;
+            margin: 0 auto;
+
+            color: var(--gray);
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 16px;
+            margin-top: 34px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 15px 28px;
+            border-radius: 999px;
+
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+
+        .button-primary {
+            background: var(--green);
+            color: #021307;
+        }
+
+        .button-primary:hover {
+            background: #42e679;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        section {
+            padding: 95px 0;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 44px;
+        }
+
+        .section-heading p {
+            color: var(--green);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin-top: 8px;
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            line-height: 1.1;
+        }
+
+        .section-heading .section-description {
+            color: var(--gray);
+            letter-spacing: normal;
+            text-transform: none;
+            font-weight: normal;
+            margin-top: 16px;
+        }
+
+        .features {
+            background: #090909;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            padding: 28px;
+            transition: 0.25s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(35, 209, 96, 0.55);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            margin-bottom: 18px;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+        }
+
+        .booth-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .booth-visual {
+            min-height: 420px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(35, 209, 96, 0.22),
+                    transparent 60%
+                ),
+                var(--panel);
+
+            border: 1px solid var(--border);
+            border-radius: 24px;
+
+            font-size: 7rem;
+        }
+
+        .booth-copy h2 {
+            margin-bottom: 20px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+        }
+
+        .booth-copy p {
+            color: var(--gray);
+            margin-bottom: 18px;
+        }
+
+        .judges {
+            background: #090909;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .judge-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .judge-card {
+            min-height: 220px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.95),
+                    rgba(35, 209, 96, 0.08)
+                ),
+                var(--panel);
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            padding: 22px;
+        }
+
+        .judge-card p {
+            color: var(--green);
+            font-size: 0.82rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .judge-card h3 {
+            margin-top: 4px;
+        }
+
+        .merch-box {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(35, 209, 96, 0.17),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid rgba(35, 209, 96, 0.4);
+            border-radius: 24px;
+
+            padding: 55px;
+            text-align: center;
+        }
+
+        .merch-box h2 {
+            margin: 12px 0;
+            font-size: clamp(2rem, 5vw, 4rem);
+        }
+
+        .merch-box p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+
+        .coming-soon {
+            display: inline-block;
+
+            background: var(--green);
+            color: #021307;
+
+            border-radius: 999px;
+            padding: 7px 14px;
+
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .support-callout {
+            text-align: center;
+        }
+
+        .support-callout h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 14px;
+        }
+
+        .support-callout p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+
+        .support-callout .button {
+            margin-top: 28px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 42px 0;
+        }
+
+        .footer-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .judge-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .booth-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .navbar {
+                flex-direction: column;
+                padding: 18px 0;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .feature-grid,
+            .judge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .merch-box {
+                padding: 38px 22px;
+            }
+
+            .footer-layout {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
-
 </head>
 
 <body>
 
 <header>
+    <div class="container navbar">
 
-<h1>TURF WARS</h1>
+        <a class="logo" href="index.html">
+            TURF WARS
+        </a>
 
-<nav>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#features">The Booth</a>
+            <a href="#judges">Judges</a>
+            <a href="#merch">Merch</a>
+            <a href="support.html">Support</a>
+        </nav>
 
-<a href="#">Home</a>
-
-<a href="#">Download</a>
-
-<a href="#">Support</a>
-
-<a href="#">Merch</a>
-
-</nav>
-
+    </div>
 </header>
 
-<section class="hero">
+<main>
 
-<h2>WELCOME TO THE TURF</h2>
+    <section class="hero">
+        <div class="container">
 
-<p>
+            <span class="eyebrow">
+                THE BOOTH IS OPEN
+            </span>
 
-Own the Mic.
+            <h1>
+                WELCOME TO<br>
+                <span>THE TURF</span>
+            </h1>
 
-Sharpen Your Flow.
+            <p class="hero-description">
+                Step into the booth, record your best bars,
+                sharpen your flow, impress the judges,
+                and prove you have what it takes to rule the Turf.
+            </p>
 
-Earn Respect.
+            <div class="hero-buttons">
 
-</p>
+                <a class="button button-primary" href="#">
+                    Download on the App Store
+                </a>
 
-<a class="download" href="#">
+                <a class="button button-secondary" href="#features">
+                    Enter the Booth
+                </a>
 
-Download on the App Store
+            </div>
 
-</a>
+        </div>
+    </section>
 
-</section>
+    <section class="features" id="features">
+        <div class="container">
+
+            <div class="section-heading">
+                <p>Built for MCs</p>
+
+                <h2>
+                    Your flow. Your voice. Your Turf.
+                </h2>
+
+                <p class="section-description">
+                    Turf Wars transforms freestyle practice into an
+                    interactive studio experience built around performance,
+                    personality, and progression.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>Flow Lab</h3>
+                    <p>
+                        Record takes, practice your delivery,
+                        and build confidence behind the microphone.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Interactive Judges</h3>
+                    <p>
+                        Face a panel of judges with unique personalities
+                        and reactions to your performance.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🎧</div>
+                    <h3>Studio Energy</h3>
+                    <p>
+                        Perform over original beats in an atmosphere
+                        designed to make every take feel important.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Build Your Skill</h3>
+                    <p>
+                        Track your takes, refine your sound,
+                        and keep pushing toward your strongest performance.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container booth-layout">
+
+            <div class="booth-visual">
+                🎙️
+            </div>
+
+            <div class="booth-copy">
+
+                <span class="eyebrow">
+                    FLOW LAB
+                </span>
+
+                <h2>
+                    Every great MC needs a place to practice.
+                </h2>
+
+                <p>
+                    The Flow Lab gives you a private space to experiment,
+                    record, listen back, and improve.
+                </p>
+
+                <p>
+                    No crowd pressure. No wasted studio session.
+                    Just you, the beat, and the microphone.
+                </p>
+
+                <a class="button button-primary" href="#">
+                    Join the Turf
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="judges" id="judges">
+        <div class="container">
+
+            <div class="section-heading">
+                <p>Meet the panel</p>
+
+                <h2>
+                    Five judges. Five personalities.
+                </h2>
+
+                <p class="section-description">
+                    Every judge brings a different attitude to the booth.
+                    Some will encourage you. Some will challenge you.
+                    None of them are easy to forget.
+                </p>
+            </div>
+
+            <div class="judge-grid">
+
+                <article class="judge-card">
+                    <p>THE ENFORCER</p>
+                    <h3>Bishop Steel</h3>
+                </article>
+
+                <article class="judge-card">
+                    <p>THE TECHNICIAN</p>
+                    <h3>Lil Binary</h3>
+                </article>
+
+                <article class="judge-card">
+                    <p>THE SOUL</p>
+                    <h3>Saint Mercy</h3>
+                </article>
+
+                <article class="judge-card">
+                    <p>THE VETERAN</p>
+                    <h3>Uncle Snaps</h3>
+                </article>
+
+                <article class="judge-card">
+                    <p>THE MYSTERY</p>
+                    <h3>Velvet Ghost</h3>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="merch">
+        <div class="container">
+
+            <div class="merch-box">
+
+                <span class="coming-soon">
+                    COMING SOON
+                </span>
+
+                <h2>
+                    Turf Wars Merch
+                </h2>
+
+                <p>
+                    Official apparel, Founding MC drops,
+                    judge collections, hats, hoodies,
+                    stickers, and limited releases are coming to the Turf.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container support-callout">
+
+            <span class="eyebrow">
+                NEED HELP?
+            </span>
+
+            <h2>
+                Turf Wars Support
+            </h2>
+
+            <p>
+                Having trouble with the app, your recordings,
+                audio permissions, or another part of the experience?
+                Visit our Support Center.
+            </p>
+
+            <a class="button button-primary" href="support.html">
+                Visit Support
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer-layout">
+
+        <div>
+            <a class="logo" href="index.html">
+                TURF WARS
+            </a>
+
+            <p class="copyright">
+                © 2026 Turf Wars. All rights reserved.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="mailto:support@turfwars.app">Contact</a>
+        </div>
+
+    </div>
+</footer>
 
 </body>
-
 </html>
