@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Get help with Turf Wars: Flow Labs, including audio permissions, recordings, playback, profiles, and general app support."
+    >
+
+    <title>Support | Turf Wars</title>
+
+    <style>
+        :root {
+            --black: #050505;
+            --panel: #111111;
+            --green: #23d160;
+            --white: #ffffff;
+            --gray: #b8b8b8;
+            --border: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(35, 209, 96, 0.11),
+                    transparent 30rem
+                ),
+                var(--black);
+
+            color: var(--white);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(1000px, 90%);
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(5, 5, 5, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .logo {
+            color: var(--green);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--gray);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        .hero {
+            padding: 110px 0 70px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            color: var(--green);
+            background: rgba(35, 209, 96, 0.1);
+
+            border: 1px solid rgba(35, 209, 96, 0.35);
+            border-radius: 999px;
+
+            padding: 8px 16px;
+            margin-bottom: 22px;
+
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            margin-bottom: 18px;
+
+            font-size: clamp(2.8rem, 8vw, 6rem);
+            line-height: 1;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .contact-box {
+            margin: 0 auto 70px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(35, 209, 96, 0.17),
+                rgba(255, 255, 255, 0.025)
+            );
+
+            border: 1px solid rgba(35, 209, 96, 0.4);
+            border-radius: 22px;
+
+            padding: 38px;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        .button {
+            display: inline-block;
+
+            background: var(--green);
+            color: #021307;
+
+            padding: 14px 26px;
+            border-radius: 999px;
+
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #42e679;
+        }
+
+        .support-section {
+            padding: 20px 0 90px;
+        }
+
+        .support-section h2 {
+            margin-bottom: 12px;
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        .intro {
+            color: var(--gray);
+            margin-bottom: 34px;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        details {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            padding: 22px;
+        }
+
+        details[open] {
+            border-color: rgba(35, 209, 96, 0.45);
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        details p {
+            color: var(--gray);
+            margin-top: 14px;
+        }
+
+        .report-box {
+            margin-top: 70px;
+
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            padding: 34px;
+        }
+
+        .report-box h2 {
+            margin-bottom: 12px;
+        }
+
+        .report-box p,
+        .report-box li {
+            color: var(--gray);
+        }
+
+        .report-box ul {
+            margin: 18px 0 24px 22px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 42px 0;
+        }
+
+        .footer-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 680px) {
+            .navbar {
+                flex-direction: column;
+                padding: 18px 0;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+
+            .contact-box,
+            .report-box {
+                padding: 28px 20px;
+            }
+
+            .footer-layout {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+
+        <a class="logo" href="index.html">
+            TURF WARS
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#features">The Booth</a>
+            <a href="index.html#judges">Judges</a>
+            <a href="index.html#merch">Merch</a>
+            <a href="support.html">Support</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container">
+
+            <span class="eyebrow">
+                SUPPORT CENTER
+            </span>
+
+            <h1>
+                WE’VE GOT<br>
+                <span>YOUR BACK</span>
+            </h1>
+
+            <p>
+                Find help with recording, playback, microphone access,
+                profiles, and other Turf Wars: Flow Labs features.
+            </p>
+
+        </div>
+    </section>
+
+    <div class="container">
+
+        <section class="contact-box">
+
+            <h2>
+                Need direct support?
+            </h2>
+
+            <p>
+                Send us a message with a description of the problem,
+                the device you are using, and any steps that caused it.
+            </p>
+
+            <a
+                class="button"
+                href="mailto:support@turfwars.app?subject=Turf%20Wars%20Support"
+            >
+                Email Turf Wars Support
+            </a>
+
+        </section>
+
+        <section class="support-section">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+            <p class="intro">
+                These quick fixes solve many common issues.
+            </p>
+
+            <div class="faq-grid">
+
+                <details>
+                    <summary>
+                        Why can’t Turf Wars access my microphone?
+                    </summary>
+
+                    <p>
+                        Open your device Settings, find Turf Wars,
+                        and make sure microphone permission is enabled.
+                        Then close and reopen the app.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        Why is my recording silent?
+                    </summary>
+
+                    <p>
+                        Confirm microphone permission is enabled,
+                        check that your device microphone is not blocked,
+                        disconnect Bluetooth audio devices temporarily,
+                        and record another short test take.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        Why can’t I hear my take during playback?
+                    </summary>
+
+                    <p>
+                        Increase your device volume and confirm silent mode
+                        or another connected audio device is not affecting
+                        playback. Close and reopen the app if the issue continues.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        Are my recordings uploaded publicly?
+                    </summary>
+
+                    <p>
+                        Turf Wars does not automatically publish your recordings.
+                        A recording remains part of your app experience unless
+                        you intentionally use an available sharing option.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        How do I delete a saved take?
+                    </summary>
+
+                    <p>
+                        Open your saved takes inside the Flow Lab,
+                        select the take you want to remove,
+                        and use the available delete option.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        How do I change my MC name or profile?
+                    </summary>
+
+                    <p>
+                        Open your Turf Wars profile and edit the available
+                        profile information. Save your changes before leaving
+                        the screen.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        The app froze or stopped responding. What should I do?
+                    </summary>
+
+                    <p>
+                        Close Turf Wars completely and reopen it.
+                        If the problem continues, restart your device
+                        and confirm you are using the latest available
+                        version of the app.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>
+                        How do I report inappropriate content or a safety concern?
+                    </summary>
+
+                    <p>
+                        Email Turf Wars Support with a clear description
+                        of the concern and any relevant details.
+                        Do not include sensitive personal information
+                        that is not necessary to investigate the report.
+                    </p>
+                </details>
+
+            </div>
+
+            <section class="report-box">
+
+                <h2>
+                    Reporting a bug
+                </h2>
+
+                <p>
+                    To help us investigate quickly, include:
+                </p>
+
+                <ul>
+                    <li>Your device model</li>
+                    <li>Your operating system version</li>
+                    <li>Your Turf Wars app version</li>
+                    <li>A description of what happened</li>
+                    <li>The steps that caused the problem</li>
+                    <li>A screenshot, when helpful</li>
+                </ul>
+
+                <a
+                    class="button"
+                    href="mailto:support@turfwars.app?subject=Turf%20Wars%20Bug%20Report"
+                >
+                    Report a Bug
+                </a>
+
+            </section>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer>
+    <div class="container footer-layout">
+
+        <div>
+            <a class="logo" href="index.html">
+                TURF WARS
+            </a>
+
+            <p class="copyright">
+                © 2026 Turf Wars. All rights reserved.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="mailto:support@turfwars.app">Contact</a>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
