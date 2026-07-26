@@ -491,6 +491,31 @@
                 align-items: flex-start;
             }
         }
+        .flow-lab-image {
+    width: 100%;
+    max-width: 520px;
+    display: block;
+    margin: 0 auto;
+
+    border-radius: 24px;
+    border: 1px solid rgba(35, 209, 96, 0.35);
+
+    box-shadow:
+        0 0 25px rgba(35, 209, 96, 0.18),
+        0 22px 50px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.flow-lab-image:hover {
+    transform: translateY(-8px) scale(1.015);
+
+    box-shadow:
+        0 0 40px rgba(35, 209, 96, 0.34),
+        0 28px 65px rgba(0, 0, 0, 0.55);
+}
     </style>
 </head>
 
@@ -612,7 +637,7 @@
         <div class="container booth-layout">
 
             <div class="booth-visual">
-                🎙️
+                <img     src="images/solo_training1.png"     alt="Turf Wars Flow Lab"     class="flow-lab-image" >
             </div>
 
             <div class="booth-copy">
