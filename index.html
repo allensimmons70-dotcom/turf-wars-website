@@ -491,11 +491,13 @@
                 align-items: flex-start;
             }
         }
-        .flow-lab-image {
+      .flow-lab-image {
     width: 100%;
-    max-width: 520px;
+    max-width: 420px;
     display: block;
     margin: 0 auto;
+
+    object-fit: cover;
 
     border-radius: 24px;
     border: 1px solid rgba(35, 209, 96, 0.35);
@@ -510,7 +512,7 @@
 }
 
 .flow-lab-image:hover {
-    transform: translateY(-8px) scale(1.015);
+    transform: translateY(-8px) scale(1.02);
 
     box-shadow:
         0 0 40px rgba(35, 209, 96, 0.34),
