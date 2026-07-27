@@ -319,39 +319,72 @@
             gap: 16px;
         }
 
-        .judge-card {
-            min-height: 220px;
+        
+.judge-card {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
 
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(0, 0, 0, 0.95),
-                    rgba(35, 209, 96, 0.08)
-                ),
-                var(--panel);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-            border: 1px solid var(--border);
-            border-radius: 18px;
+.judge-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(35, 209, 96, 0.65);
 
-            padding: 22px;
-        }
+    box-shadow:
+        0 0 28px rgba(35, 209, 96, 0.22),
+        0 20px 45px rgba(0, 0, 0, 0.5);
+}
 
-        .judge-card p {
-            color: var(--green);
-            font-size: 0.82rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+.judge-image {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
 
-        .judge-card h3 {
-            margin-top: 4px;
-        }
+    transition: transform 0.4s ease;
+}
 
-        .merch-box {
+.judge-card:hover .judge-image {
+    transform: scale(1.05);
+}
+
+.judge-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 50px 18px 18px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.98),
+        rgba(0, 0, 0, 0.72),
+        transparent
+    );
+}
+
+.judge-info p {
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.judge-info h3 {
+    margin-top: 4px;
+    font-size: 1.2rem;
+}        .merch-box {
             background:
                 linear-gradient(
                     135deg,
@@ -689,34 +722,75 @@
                 </p>
             </div>
 
-            <div class="judge-grid">
+           <div class="judge-grid">
 
-                <article class="judge-card">
-                    <p>THE ENFORCER</p>
-                    <h3>Bishop Steel</h3>
-                </article>
+    <article class="judge-card">
+        <img
+            src="bishop_steel_happy.png"
+            alt="Bishop Steel"
+            class="judge-image"
+        >
 
-                <article class="judge-card">
-                    <p>THE TECHNICIAN</p>
-                    <h3>Lil Binary</h3>
-                </article>
+        <div class="judge-info">
+            <p>THE ENFORCER</p>
+            <h3>Bishop Steel</h3>
+        </div>
+    </article>
 
-                <article class="judge-card">
-                    <p>THE SOUL</p>
-                    <h3>Saint Mercy</h3>
-                </article>
+    <article class="judge-card">
+        <img
+            src="lil_binary_happy.png"
+            alt="Lil Binary"
+            class="judge-image"
+        >
 
-                <article class="judge-card">
-                    <p>THE VETERAN</p>
-                    <h3>Uncle Snaps</h3>
-                </article>
+        <div class="judge-info">
+            <p>THE TECHNICIAN</p>
+            <h3>Lil Binary</h3>
+        </div>
+    </article>
 
-                <article class="judge-card">
-                    <p>THE MYSTERY</p>
-                    <h3>Velvet Ghost</h3>
-                </article>
+    <article class="judge-card">
+        <img
+            src="saint_mercy_happy.png"
+            alt="Saint Mercy"
+            class="judge-image"
+        >
 
-            </div>
+        <div class="judge-info">
+            <p>THE SOUL</p>
+            <h3>Saint Mercy</h3>
+        </div>
+    </article>
+
+    <article class="judge-card">
+        <img
+            src="uncle_snaps_happy.png"
+            alt="Uncle Snaps"
+            class="judge-image"
+        >
+
+        <div class="judge-info">
+            <p>THE VETERAN</p>
+            <h3>Uncle Snaps</h3>
+        </div>
+    </article>
+
+    <article class="judge-card">
+        <img
+            src="velvet_ghost_happy.png"
+            alt="Velvet Ghost"
+            class="judge-image"
+        >
+
+        <div class="judge-info">
+            <p>THE MYSTERY</p>
+            <h3>Velvet Ghost</h3>
+        </div>
+    </article>
+
+</div>
+          
         </div>
     </section>
 
