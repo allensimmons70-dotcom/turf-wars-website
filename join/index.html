@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="Scan into Turf Wars: Flow Lab. Step into the booth, sharpen your flow, and join the Turf.">
+    <title>Join the Turf | Turf Wars: Flow Lab</title>
+
+    <style>
+        :root {
+            --black: #050505;
+            --panel: #111111;
+            --panel-soft: #171717;
+            --green: #23d160;
+            --green-soft: rgba(35, 209, 96, 0.12);
+            --white: #ffffff;
+            --gray: #b7b7b7;
+            --border: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, rgba(35, 209, 96, 0.18), transparent 30rem),
+                var(--black);
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            width: min(100%, 760px);
+            margin: 0 auto;
+            padding: 24px 18px 48px;
+        }
+
+        .brand-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 42px;
+        }
+
+        .logo {
+            color: var(--green);
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .home-link {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 18px 0 34px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 7px 14px;
+            border: 1px solid rgba(35, 209, 96, 0.4);
+            border-radius: 999px;
+            background: var(--green-soft);
+            color: var(--green);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+
+        .hero h1 {
+            margin-bottom: 18px;
+            font-size: clamp(3rem, 14vw, 5.75rem);
+            line-height: 0.9;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero-copy {
+            max-width: 620px;
+            margin: 0 auto 26px;
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 58px;
+            padding: 16px 22px;
+            border-radius: 14px;
+            font-weight: 900;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--green);
+            color: #021b0a;
+            box-shadow: 0 12px 30px rgba(35, 209, 96, 0.2);
+        }
+
+        .button-secondary {
+            margin-top: 12px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--white);
+        }
+
+        .button:active {
+            transform: scale(0.985);
+        }
+
+        .drop-card {
+            margin-top: 24px;
+            padding: 28px 22px;
+            border: 1px solid rgba(35, 209, 96, 0.35);
+            border-radius: 22px;
+            background:
+                linear-gradient(180deg, rgba(35, 209, 96, 0.08), rgba(35, 209, 96, 0.02)),
+                var(--panel);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .drop-label {
+            margin-bottom: 10px;
+            color: var(--green);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 1.7px;
+        }
+
+        .drop-card h2 {
+            margin-bottom: 12px;
+            font-size: clamp(1.7rem, 8vw, 2.6rem);
+            line-height: 1;
+        }
+
+        .drop-card p {
+            color: var(--gray);
+        }
+
+        .drop-meta {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .meta-box {
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--panel-soft);
+        }
+
+        .meta-box strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .meta-box span {
+            color: var(--gray);
+            font-size: 0.92rem;
+        }
+
+        .footer-note {
+            padding: 32px 10px 0;
+            text-align: center;
+            color: #777;
+            font-size: 0.86rem;
+        }
+
+        @media (min-width: 620px) {
+            .page {
+                padding-top: 34px;
+            }
+
+            .hero {
+                padding-top: 36px;
+            }
+
+            .hero-copy {
+                font-size: 1.12rem;
+            }
+
+            .cta-row {
+                display: grid;
+                grid-template-columns: 1.4fr 1fr;
+                gap: 12px;
+                max-width: 620px;
+                margin: 0 auto;
+            }
+
+            .button-secondary {
+                margin-top: 0;
+            }
+
+            .drop-card {
+                padding: 34px;
+            }
+
+            .drop-meta {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <div class="brand-row">
+            <a class="logo" href="../index.html">TURF WARS</a>
+            <a class="home-link" href="../index.html">Visit the Turf</a>
+        </div>
+
+        <section class="hero">
+
+            <span class="eyebrow">YOU SCANNED THE TURF</span>
+
+            <h1>
+                THINK YOU<br>
+                <span>GOT BARS?</span>
+            </h1>
+
+            <p class="hero-copy">
+                Turf Wars: Flow Lab puts you in the booth. Record your takes,
+                sharpen your delivery, face the judges, and start earning your
+                place on the Turf.
+            </p>
+
+            <div class="cta-row">
+
+                <a
+                    class="button button-primary"
+                    href="https://apps.apple.com/app/turf-wars-flow-lab/id6794788448"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Download on the App Store
+                </a>
+
+                <a class="button button-secondary" href="../index.html">
+                    Explore the Turf
+                </a>
+
+            </div>
+
+        </section>
+
+        <section class="drop-card">
+
+            <p class="drop-label">COLLECTIBLE STICKER SERIES</p>
+
+            <h2>YOU FOUND A TURF WARS DROP</h2>
+
+            <p>
+                This QR came from an official Turf Wars collectible sticker.
+                Every drop helps carry the Turf into new neighborhoods, cities,
+                and states. Scan it. Share it. Rep the Turf.
+            </p>
+
+            <div class="drop-meta">
+
+                <div class="meta-box">
+                    <strong>DROP 1</strong>
+                    <span>The first collectible Turf Wars sticker series.</span>
+                </div>
+
+                <div class="meta-box">
+                    <strong>MORE COMING</strong>
+                    <span>New designs, challenges, and Turf drops can arrive later.</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <p class="footer-note">
+            © 2026 Turf Wars. All rights reserved.
+        </p>
+
+    </main>
+
+</body>
+</html>
