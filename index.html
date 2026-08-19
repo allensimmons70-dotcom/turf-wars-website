@@ -384,7 +384,41 @@
 .judge-info h3 {
     margin-top: 4px;
     font-size: 1.2rem;
-}        .merch-box {
+}
+
+.judge-card {
+    cursor: pointer;
+}
+
+.judge-bio {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    color: #d5d5d5;
+    font-size: 0.88rem;
+    line-height: 1.5;
+
+    transition:
+        max-height 0.35s ease,
+        opacity 0.35s ease,
+        margin-top 0.35s ease;
+
+    margin-top: 0;
+}
+
+.judge-card.active .judge-bio {
+    max-height: 180px;
+    opacity: 1;
+    margin-top: 12px;
+}
+
+.judge-tap-hint {
+    margin-top: 22px;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+        .merch-box {
             background:
                 linear-gradient(
                     135deg,
@@ -804,9 +838,9 @@
                 </p>
             </div>
 
-           <div class="judge-grid">
+         <div class="judge-grid">
 
-    <article class="judge-card">
+    <article class="judge-card" onclick="toggleJudgeBio(this)">
         <img
             src="bishop_steel_happy.png"
             alt="Bishop Steel"
@@ -816,10 +850,17 @@
         <div class="judge-info">
             <p>THE ENFORCER</p>
             <h3>Bishop Steel</h3>
+
+            <div class="judge-bio">
+                Strict, direct, and hard to impress.
+                Bishop Steel respects control, confidence,
+                and bars that land with purpose.
+            </div>
         </div>
     </article>
 
-    <article class="judge-card">
+
+    <article class="judge-card" onclick="toggleJudgeBio(this)">
         <img
             src="lil_binary_happy.png"
             alt="Lil Binary"
@@ -829,10 +870,17 @@
         <div class="judge-info">
             <p>THE TECHNICIAN</p>
             <h3>Lil Binary</h3>
+
+            <div class="judge-bio">
+                Focused on timing, precision, and structure.
+                Lil Binary listens for the little details that
+                separate a decent take from a sharp one.
+            </div>
         </div>
     </article>
 
-    <article class="judge-card">
+
+    <article class="judge-card" onclick="toggleJudgeBio(this)">
         <img
             src="saint_mercy_happy.png"
             alt="Saint Mercy"
@@ -842,10 +890,17 @@
         <div class="judge-info">
             <p>THE SOUL</p>
             <h3>Saint Mercy</h3>
+
+            <div class="judge-bio">
+                Emotion matters. Saint Mercy pays attention
+                to feeling, presence, and whether the performance
+                actually connects.
+            </div>
         </div>
     </article>
 
-    <article class="judge-card">
+
+    <article class="judge-card" onclick="toggleJudgeBio(this)">
         <img
             src="uncle_snaps_happy.png"
             alt="Uncle Snaps"
@@ -855,10 +910,17 @@
         <div class="judge-info">
             <p>THE VETERAN</p>
             <h3>Uncle Snaps</h3>
+
+            <div class="judge-bio">
+                Old-school ears and no patience for lazy delivery.
+                Uncle Snaps values rhythm, confidence,
+                and respect for the craft.
+            </div>
         </div>
     </article>
 
-    <article class="judge-card">
+
+    <article class="judge-card" onclick="toggleJudgeBio(this)">
         <img
             src="velvet_ghost_happy.png"
             alt="Velvet Ghost"
@@ -868,22 +930,24 @@
         <div class="judge-info">
             <p>THE MYSTERY</p>
             <h3>Velvet Ghost</h3>
+
+            <div class="judge-bio">
+                Quiet, unpredictable, and hard to read.
+                Velvet Ghost listens for originality, atmosphere,
+                and the kind of delivery that sticks with you.
+            </div>
         </div>
     </article>
 
 </div>
+
+<p class="judge-tap-hint">
+    Tap a judge to learn more.
+</p>
           
         </div>
     </section>
 
-    <section id="merch">
-    <div class="container">
-
-        <div class="merch-box">
-
-            <span class="coming-soon">
-                FREE STICKER DROP
-            </span>
 
           <section id="merch">
     <div class="container">
@@ -965,5 +1029,21 @@
     </div>
 </footer>
 
+            <script>
+function toggleJudgeBio(selectedJudge) {
+
+    const judges = document.querySelectorAll('.judge-card');
+
+    judges.forEach(function(judge) {
+
+        if (judge !== selectedJudge) {
+            judge.classList.remove('active');
+        }
+
+    });
+
+    selectedJudge.classList.toggle('active');
+}
+</script>
 </body>
 </html>
