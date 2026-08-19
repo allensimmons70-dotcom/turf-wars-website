@@ -583,6 +583,41 @@
         0 0 40px rgba(35, 209, 96, 0.34),
         0 28px 65px rgba(0, 0, 0, 0.55);
 }
+        .music-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2000;
+
+    border: 1px solid rgba(35, 209, 96, 0.5);
+    border-radius: 999px;
+
+    background: rgba(5, 5, 5, 0.92);
+    color: var(--green);
+
+    padding: 12px 18px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(35, 209, 96, 0.16),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.music-toggle:hover {
+    background: var(--green);
+    color: #021307;
+}
+
+@media (max-width: 680px) {
+    .music-toggle {
+        right: 14px;
+        bottom: 14px;
+        padding: 10px 15px;
+        font-size: 0.88rem;
+    }
+}
     </style>
 </head>
 
@@ -1030,6 +1065,53 @@
 </footer>
 
             <script>
+                <script>
+const turfMusic = document.getElementById('turfMusic');
+const musicToggle = document.getElementById('musicToggle');
+
+let musicEnabled = false;
+
+turfMusic.volume = 0.35;
+
+musicToggle.addEventListener('click', async function() {
+
+    if (!musicEnabled) {
+
+        try {
+            await turfMusic.play();
+
+            musicEnabled = true;
+            musicToggle.textContent = '🔇 Music Off';
+
+        } catch (error) {
+            console.log('Music could not start:', error);
+        }
+
+    } else {
+
+        turfMusic.pause();
+
+        musicEnabled = false;
+        musicToggle.textContent = '🎵 Music On';
+
+    }
+
+});
+
+document.addEventListener('visibilitychange', function() {
+
+    if (document.hidden) {
+
+        turfMusic.pause();
+
+    } else if (musicEnabled) {
+
+        turfMusic.play().catch(function() {});
+
+    }
+
+});
+</script>
 function toggleJudgeBio(selectedJudge) {
 
     const judges = document.querySelectorAll('.judge-card');
@@ -1044,6 +1126,19 @@ function toggleJudgeBio(selectedJudge) {
 
     selectedJudge.classList.toggle('active');
 }
+                <audio
+    id="turfMusic"
+    src="huh-what-yeah-ok.mp3"
+    loop
+    preload="metadata">
+</audio>
+
+<button
+    id="musicToggle"
+    class="music-toggle"
+    type="button">
+    🎵 Music On
+</button>
 </script>
 </body>
 </html>
