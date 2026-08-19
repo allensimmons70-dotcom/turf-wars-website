@@ -1064,8 +1064,38 @@
     </div>
 </footer>
 
-            <script>
-                <script>
+           <audio
+    id="turfMusic"
+    src="Huh, What, Yeah, OK!.mp3"
+    loop
+    preload="metadata">
+</audio>
+
+<button
+    id="musicToggle"
+    class="music-toggle"
+    type="button">
+    🎵 Music On
+</button>
+
+<script>
+function toggleJudgeBio(selectedJudge) {
+
+    const judges = document.querySelectorAll('.judge-card');
+
+    judges.forEach(function(judge) {
+
+        if (judge !== selectedJudge) {
+            judge.classList.remove('active');
+        }
+
+    });
+
+    selectedJudge.classList.toggle('active');
+}
+</script>
+
+<script>
 const turfMusic = document.getElementById('turfMusic');
 const musicToggle = document.getElementById('musicToggle');
 
@@ -1111,34 +1141,6 @@ document.addEventListener('visibilitychange', function() {
     }
 
 });
-</script>
-function toggleJudgeBio(selectedJudge) {
-
-    const judges = document.querySelectorAll('.judge-card');
-
-    judges.forEach(function(judge) {
-
-        if (judge !== selectedJudge) {
-            judge.classList.remove('active');
-        }
-
-    });
-
-    selectedJudge.classList.toggle('active');
-}
-                <audio
-    id="turfMusic"
-    src="huh-what-yeah-ok.mp3"
-    loop
-    preload="metadata">
-</audio>
-
-<button
-    id="musicToggle"
-    class="music-toggle"
-    type="button">
-    🎵 Music On
-</button>
 </script>
 </body>
 </html>
